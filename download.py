@@ -1,7 +1,6 @@
-import requests
-import json
-
 def getAddress():
+    import requests
+    import json
     result = requests.get("https://api.github.com/repos/Luohuayu/Catserver/releases/latest").text
     data = json.loads(str(result))
     data = data['assets']
@@ -14,3 +13,4 @@ def downloadFile(url):
     import ssl
     ssl._create_default_https_context = ssl._create_unverified_context
     wget.download(url)
+
